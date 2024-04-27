@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexNile - CPD</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('{% static "bg.jpg" %}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .content {
+      text-align: center;
+      padding-top: 30%;
+    }
+    .text-container {
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .text-container h1, .text-container p {
+      color: #fff; /* White font color */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      <div class="text-container">
+        <h1>Welcome to ApexNile CPD</h1>
+        <p>Your comprehensive hub for ongoing professional growth</p>
+        <a href="/admin" class="btn btn-primary">Go to Admin Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

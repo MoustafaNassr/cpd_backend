@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPD Summary</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col text-center">
+        <h1 class="display-4">CPD Summary</h1>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <p><strong>Name:</strong> {{user.first_name}} {{user.last_name}}</p>
+        <p><strong>Email:</strong> {{user.username}}</p>
+        <p><strong>Total Logged Hours:</strong> {{total_hours}} </p>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <h2 class="h4">CPD Items Details</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Type</th>
+              <th>Skills Area</th>
+              <th>Format of Training</th>
+              <th>Hours Logged</th>
+              <th>Date Completed</th>
+              <th>Cost of CPD</th>
+              <th>What Did You Learn</th>
+              <th>Future Dev Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for single_cpd_item in cpd_items %}
+            <tr>
+              <td>{{single_cpd_item.title}}</td>
+              <td>{{single_cpd_item.type}}</td>
+              <td>{{single_cpd_item.skills_area.name}}</td>
+              <td>{{single_cpd_item.format_of_training.name}}</td>
+              <td>{{single_cpd_item.hours_logged}}</td>
+              <td>{{single_cpd_item.date_completed}}</td>
+              <td>{{single_cpd_item.cost_of_cpd}}</td>
+              <td>{{single_cpd_item.what_did_you_learn}}</td>
+              <td>{{single_cpd_item.future_dev_notes}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

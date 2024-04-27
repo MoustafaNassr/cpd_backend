@@ -1,0 +1,10 @@
+asgiref
+Django
+sqlparse
+typing_extensions
+django-admin-interface
+djangorestframework
+tzdata
+psycopg2-binary
+django-colorfield
+weasyprint

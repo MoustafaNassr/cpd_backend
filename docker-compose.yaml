@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+
+
+  db:
+    image: postgres:14
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - '5449:5432'
+    restart: always       
+    command: -p 5448
+    environment:
+      - POSTGRES_DB=database_innvoentiq
+      - POSTGRES_USER=database_user_innvoentiq
+      - POSTGRES_PASSWORD=Yahoo000@
+  cpd-django:
+    build: .
+    container_name: cpd-admin-django 
+    restart: always 
+    environment:
+      - POSTGRES_DB=database_innvoentiq
+      - POSTGRES_USER=database_user_innvoentiq
+      - POSTGRES_PASSWORD=Yahoo000@
+      # - PGDATA=/tmp
+    ports:
+      - '5006:80'
+      - '5007:443'
+    volumes:
+      - .:/var/www/html
+      - ./static:/var/www/html/static
+      - ./product_images:/var/www/html/product_images
+      - ./data/log:/var/log/apache2
+      - ./data/database:/var/www/html/data/database
+    # command: sh -c 'python manage.py migrate && python manage.py loaddata last_db.json && apache2ctl -D FOREGROUND'
+    command: sh -c 'apt-get install graphviz libgraphviz-dev pkg-config && wait-for-it db:5448 -- python manage.py makemigrations --noinput && python manage.py migrate --noinput && python manage.py collectstatic  --no-input && apache2ctl -D FOREGROUND'
+    depends_on:
+      - db

@@ -1,0 +1,25 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Environments #
+.env
+
+# IDE #
+.vscode/
+*.pyc
+
+# Python #
+*.pyc
+*.pyo
+__pycache__/
+
+
+# Database #
+*.sqlite3
+/uploads/*
+uploads
+uploads/*
